@@ -1,0 +1,18 @@
+===============================================================================================================================================================
+Multiple Layout:
+- Thư mục layouts : chứa các layout vue
+    +)trong các layout vue chứa slot để nhận chỗ các component
+- File router/index.js : 
+    +)thêm thuộc tính meta->layout trong router để xem router đó thuộc layout nào
+- Trong App.vue thêm thẻ component để bao bọc router-vue
+    +)router vue: hiển thị views theo router -> là slot của component trong vue ở thư mục layouts
+    +)thẻ component có id component(tên layout) để xác nhận xem đó là component nào trong thư mục layouts (thẻ này bao bọc router view)
+    +)import useRoute để biết được thông tin meta->layout của router hiện tại
+    +)import computed để thay đổi component layout trong App.vue khi truy cập qua các router vì App chỉ được khởi tạo 1 lần
+    +)trong App.vue return ra meta->layout thông qua router => layout: computed(() => route.meta.layout)
+- Trong thư mục ultis/import.js dùng để import các layout
+    +) defineAsyncComponent : khi nào cần dùng component layout thì mới gọi ra
+    +) function registerGlobalComponent nhận tham số là app để import component vào.
+  
+===============================================================================================================================================================
+
